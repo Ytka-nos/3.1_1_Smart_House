@@ -129,5 +129,16 @@ public class Radio {
         }
         return;
     }
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    // Добавили 2 конструктора для max станции
+
+    public Radio(int maxRadioStation) {
+        this.maxRadioStation = maxRadioStation;
+    }
+
+
+public Radio() {
+        }
+
 
 }

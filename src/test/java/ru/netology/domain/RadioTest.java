@@ -306,7 +306,7 @@ class RadioTest {
     void increaseVolumeMin() {
         Radio rad = new Radio();
         rad.setMinVolume(0);
-        rad.setMaxVolume(10);
+        rad.setMaxVolume(100);
         rad.setCurrentVolume(0);
 
         rad.increaseVolume();
@@ -319,7 +319,7 @@ class RadioTest {
     void increaseVolumeAfterMin() {
         Radio rad = new Radio();
         rad.setMinVolume(0);
-        rad.setMaxVolume(10);
+        rad.setMaxVolume(100);
         rad.setCurrentVolume(1);
 
         rad.increaseVolume();
@@ -332,11 +332,11 @@ class RadioTest {
     void increaseVolumeBeforeMax() {
         Radio rad = new Radio();
         rad.setMinVolume(0);
-        rad.setMaxVolume(10);
-        rad.setCurrentVolume(9);
+        rad.setMaxVolume(100);
+        rad.setCurrentVolume(99);
 
         rad.increaseVolume();
-        int expected = 10;
+        int expected = 100;
         int actual = rad.getCurrentVolume();
         assertEquals(expected, actual);
     }
@@ -346,11 +346,11 @@ class RadioTest {
     void increaseVolumeAfterMax() {
         Radio rad = new Radio();
         rad.setMinVolume(0);
-        rad.setMaxVolume(10);
-        rad.setCurrentVolume(10);
+        rad.setMaxVolume(100);
+        rad.setCurrentVolume(100);
 
         rad.increaseVolume();
-        int expected = 10;
+        int expected = 100;
         int actual = rad.getCurrentVolume();
         assertEquals(expected, actual);
     }
@@ -363,7 +363,7 @@ class RadioTest {
     void decreaseVolumeMin() {
         Radio rad = new Radio();
         rad.setMinVolume(0);
-        rad.setMaxVolume(10);
+        rad.setMaxVolume(100);
         rad.setCurrentVolume(0);
 
         rad.decreaseVolume();
@@ -377,7 +377,7 @@ class RadioTest {
     void decreaseVolumeAfterMin() {
         Radio rad = new Radio();
         rad.setMinVolume(0);
-        rad.setMaxVolume(10);
+        rad.setMaxVolume(100);
         rad.setCurrentVolume(1);
 
         rad.decreaseVolume();
@@ -390,11 +390,11 @@ class RadioTest {
     void decreaseVolumeBeforeMax() {
         Radio rad = new Radio();
         rad.setMinVolume(0);
-        rad.setMaxVolume(10);
-        rad.setCurrentVolume(9);
+        rad.setMaxVolume(100);
+        rad.setCurrentVolume(99);
 
         rad.decreaseVolume();
-        int expected = 8;
+        int expected = 98;
         int actual = rad.getCurrentVolume();
         assertEquals(expected, actual);
     }
@@ -403,13 +403,36 @@ class RadioTest {
     void decreaseVolumeMax() {
         Radio rad = new Radio();
         rad.setMinVolume(0);
-        rad.setMaxVolume(10);
-        rad.setCurrentVolume(10);
+        rad.setMaxVolume(100);
+        rad.setCurrentVolume(100);
 
         rad.decreaseVolume();
-        int expected = 9;
+        int expected = 99;
         int actual = rad.getCurrentVolume();
         assertEquals(expected, actual);
     }
+
+    // Тесты на задание кол-ва радиостанций при создании обьекта///////////////////////////////////
+    @Test
+    void increaseRadioStationFromMaxWithConstructor() {
+        Radio rad = new Radio(
+
+                15
+        );
+        rad.setMinRadioStation(0);
+        rad.setCurrentRadioStationByControl(15);
+
+
+        rad.increaseRadioStation();
+
+
+        int expected = 0;
+        int actual = rad.getCurrentRadioStation();
+        assertEquals(expected, actual);
+    }
+
+
+
+
 
 }
