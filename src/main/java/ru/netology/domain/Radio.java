@@ -5,11 +5,16 @@ public class Radio {
     private int minRadioStation;
     private int maxRadioStation;
 
+    private int currentVolume;
+    private int minVolume;
+    private int maxVolume;
+
+    private int numberOfRadioStation;
+
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
-
 
     public int getMinRadioStation() {
         return minRadioStation;
@@ -23,10 +28,56 @@ public class Radio {
         this.minRadioStation = minRadioStation;
     }
 
-
     public void setMaxRadioStation(int maxRadioStation) {
         this.maxRadioStation = maxRadioStation;
     }
+
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
+    }
+
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+    public void setMinVolume(int minVolume) {
+        this.minVolume = minVolume;
+    }
+
+    public void setMaxVolume(int maxVolume) {
+        this.maxVolume = maxVolume;
+    }
+
+    public int getNumberOfRadioStation() { return numberOfRadioStation;}
+
+    public void setNumberOfRadioStation(int numberOfRadioStation) {this.numberOfRadioStation = numberOfRadioStation;}
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    // Добавили 2 конструктора для колличества радио станций
+
+    public Radio(int numberOfRadioStation) {
+        this.numberOfRadioStation = numberOfRadioStation;
+    }
+
+    public Radio() {
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //  Указание колличества радио станций :
+
+    public void setNumberOfRadioStationByControl(int numberOfRadioStation) {
+        this.maxRadioStation = numberOfRadioStation -1;
+
+    }
+
+
+
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Изменение текущей радио станции на цифровом пульте от min  до max:
@@ -69,33 +120,6 @@ public class Radio {
     // Звук
 
 
-    private int currentVolume;
-    private int minVolume;
-    private int maxVolume;
-
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
-    }
-
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
-    }
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
     //   Ввод звука (чтобы не этапе подготовки не ввести значение больше или меньше, чем возможно):
 
@@ -121,7 +145,7 @@ public class Radio {
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Уменьшение звук ана 1:
+    // Уменьшение звука на 1:
 
     public void decreaseVolume() {
         if (currentVolume > minVolume) {
@@ -129,16 +153,6 @@ public class Radio {
         }
         return;
     }
-    ///////////////////////////////////////////////////////////////////////////////////////////////
-    // Добавили 2 конструктора для max станции
-
-    public Radio(int maxRadioStation) {
-        this.maxRadioStation = maxRadioStation;
-    }
-
-
-public Radio() {
-        }
 
 
 }

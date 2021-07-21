@@ -240,6 +240,7 @@ class RadioTest {
 
 
     }
+
     @Test
     void setVolumeAfterMin() {
         Radio rad = new Radio();
@@ -254,9 +255,7 @@ class RadioTest {
     }
 
 
-
-
-@Test
+    @Test
     void setVolumeBeforeMax() {
         Radio rad = new Radio();
         rad.setMinVolume(0);
@@ -268,7 +267,6 @@ class RadioTest {
         int actual = rad.getCurrentVolume();
         assertEquals(expected, actual);
     }
-
 
 
     @Test
@@ -412,27 +410,20 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
-    // Тесты на задание кол-ва радиостанций при создании обьекта///////////////////////////////////
+    // Тесты на указание количества станций ///////////////////////////////////
     @Test
-    void increaseRadioStationFromMaxWithConstructor() {
+    void setNumberOfRadioStationByControl() {
         Radio rad = new Radio(
 
                 15
         );
-        rad.setMinRadioStation(0);
-        rad.setCurrentRadioStationByControl(15);
 
+        rad.setNumberOfRadioStationByControl(10);
 
-        rad.increaseRadioStation();
-
-
-        int expected = 0;
-        int actual = rad.getCurrentRadioStation();
+        int expected = 9;
+        int actual = rad.getMaxRadioStation();
         assertEquals(expected, actual);
     }
-
-
-
 
 
 }
