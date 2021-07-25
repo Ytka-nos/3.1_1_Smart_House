@@ -11,6 +11,18 @@ public class Radio {
 
     private int numberOfRadioStation;
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    // Добавили 2 конструктора для колличества радио станций
+
+    public Radio(int numberOfRadioStation) {
+        this.numberOfRadioStation = numberOfRadioStation;
+        maxRadioStation = numberOfRadioStation -1;
+
+    }
+
+    public Radio() {
+    }
+
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
@@ -57,22 +69,14 @@ public class Radio {
 
     public void setNumberOfRadioStation(int numberOfRadioStation) {this.numberOfRadioStation = numberOfRadioStation;}
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////
-    // Добавили 2 конструктора для колличества радио станций
 
-    public Radio(int numberOfRadioStation) {
-        this.numberOfRadioStation = numberOfRadioStation;
-    }
-
-    public Radio() {
-    }
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //  Указание колличества радио станций :
 
     public void setNumberOfRadioStationByControl(int numberOfRadioStation) {
-        this.maxRadioStation = numberOfRadioStation -1;
+        maxRadioStation = numberOfRadioStation -1;
 
     }
 

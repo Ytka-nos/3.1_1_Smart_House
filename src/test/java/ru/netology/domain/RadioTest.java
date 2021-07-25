@@ -93,6 +93,22 @@ class RadioTest {
     ;
 
 
+    // Тесты на изменение станции с цифрового пульта c конструктором:  /////////////////////////////////////////////
+
+
+    @Test
+    void setCurrentRadioStationBorderAfterMaxByControlWithConstructor() {
+        Radio rad = new Radio(10);
+        rad.setMinRadioStation(0);
+        rad.setCurrentRadioStationByControl(5);
+
+        rad.setCurrentRadioStationByControl(10);
+        int expected = 5;
+        int actual = rad.getCurrentRadioStation();
+        assertEquals(expected, actual);
+    }
+
+
 // Тесты на увеличение радио станции:  ////////////////////////////////////////////////////////////////
 
     @Test
@@ -154,6 +170,23 @@ class RadioTest {
     }
 
     ;
+
+
+// Тесты на увеличение радио станции с конструктором:  ////////////////////////////////////////////////////////////////
+
+
+    @Test
+    void increaseRadioStationFromMaxWithConstructor() {
+        Radio rad = new Radio(10);
+        rad.setMinRadioStation(0);
+        rad.setCurrentRadioStationByControl(9);
+
+        rad.increaseRadioStation();
+        int expected = 0;
+        int actual = rad.getCurrentRadioStation();
+        assertEquals(expected, actual);
+    }
+
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Тесты на уменьшение радио станции:
@@ -410,20 +443,34 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
-    // Тесты на указание количества станций ///////////////////////////////////
+    // Тесты на указание текущей  станций с конструктором ///////////////////////////////////
     @Test
-    void setNumberOfRadioStationByControl() {
+    void setNumberOfRadioStationByControlWithConstructor() {
         Radio rad = new Radio(
 
-                15
+                20
         );
 
-        rad.setNumberOfRadioStationByControl(10);
+        rad.setCurrentRadioStationByControl(15);
+        int expected = 15;
+        int actual = rad.getCurrentRadioStation();
+        assertEquals(expected, actual);
 
+    }
+
+    // Тест на указания текущей станции://///////////////////////////////////////////////////////////////////
+
+    @Test
+    void setNumberOfRadioStation(){
+        Radio rad = new Radio();
+        rad.setMaxRadioStation(5);
+
+        rad.setNumberOfRadioStationByControl(10);
         int expected = 9;
         int actual = rad.getMaxRadioStation();
         assertEquals(expected, actual);
-    }
 
+
+    }
 
 }
